@@ -13,24 +13,6 @@ class Board
 		return array
 	end
 
-	def print_array
-		p @playable_letters
-	end
-
-	def longest_word
-		longest_word = ""
-		words = Dictionary.words
-
-		words.each do |word|
-			if can_play_word?(word)
-				if word.length > longest_word.length
-					longest_word = word
-				end
-			end
-		end
-		p longest_word
-	end
-
 	def can_play_word?(word)
 		playable_letters_copy = @playable_letters.dup
 
@@ -52,5 +34,19 @@ class Board
 	    		return false
 	    	end
 	    end
+	end
+
+	def longest_word
+		longest_word = ""
+		words = Dictionary.words
+
+		words.each do |word|
+			if can_play_word?(word)
+				if word.length >= longest_word.length
+					longest_word = word
+				end
+			end
+		end
+		p longest_word
 	end
 end
