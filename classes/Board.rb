@@ -42,7 +42,7 @@ class Board
 
 		words.each do |word|
 			if can_play_word?(word)
-				if word.length >= longest_word.length
+				if word.length > longest_word.length
 					longest_word = word
 				end
 			end
